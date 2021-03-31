@@ -36,6 +36,7 @@
 		console.log("usernames = " + strAllUsers)
 
 
+
 		let randomNumber=0
 		let countCookie=""
 		let viewCount=0
@@ -69,6 +70,33 @@
 		document.getElementById('_BlueBallCount').innerHTML = getCount(user + "_" + "bluecount")
 		document.getElementById('_RedBallCount').innerHTML = getCount(user + "_" + "redcount")
 
+
+		let statsTable = document.getElementById('_statsTable')
+		let sortedUsers =  allUsers.sort();
+		for (let i = 0 ; i < sortedUsers.length; i++) {
+			let row = statsTable.insertRow(i+2);  // To account for the 2 heading lines
+
+			if(sortedUsers[i] == user) {
+				row.style.fontSize = 'large';
+			}
+
+			row.style.fontWeight = 'bold';
+
+			if (getCount(sortedUsers[i] + "_" + "redcount") > 0)
+		       { row.style.color = '#cf133b'; }
+		    else { row.style.color = '#3b4ba3'; }
+
+
+
+			let cell0 = row.insertCell(0);
+			let cell1 = row.insertCell(1);
+			let cell2 = row.insertCell(2);
+
+			cell0.innerHTML = sortedUsers[i];
+			cell1.innerHTML = getCount(sortedUsers[i] + "_" + "bluecount");
+            cell2.innerHTML = getCount(sortedUsers[i] + "_" + "redcount");
+		}
+
 	}
 
 
@@ -77,11 +105,11 @@
 
 	function getCookie(cname) {
 	   console.log("getCookie: cname = " + cname)
-       var name = cname + "=";
-       var decodedCookie = decodeURIComponent(document.cookie);
-       var ca = decodedCookie.split(';');
-       for(var i = 0; i < ca.length; i++) {
-          var c = ca[i];
+       let name = cname + "=";
+       let decodedCookie = decodeURIComponent(document.cookie);
+       let ca = decodedCookie.split(';');
+       for(let i = 0; i < ca.length; i++) {
+          let c = ca[i];
           while (c.charAt(0) == ' ') {
              c = c.substring(1);
           }
@@ -97,9 +125,9 @@
 
 	function setCookie(cname, cvalue, exdays) {
 	   console.log("setCookie: cname = " + cname + "; value = " + cvalue)
-       var d = new Date();
+       let d = new Date();
        d.setTime(d.getTime() + (exdays*24*60*60*1000));
-       var expires = "expires="+ d.toUTCString();
+       let expires = "expires="+ d.toUTCString();
        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 	} // setCookie
 
@@ -107,7 +135,7 @@
 
 	function getCount(cname) {
 	   console.log("getCount: cname = " + cname)
-       var count = getCookie(cname);
+       let count = getCookie(cname);
        if (!count) {
 		  count = 0
 	   }
@@ -120,10 +148,10 @@
 
 	function deleteCookies() {
 
-		var allCookies = document.cookie.split(';');
+		let allCookies = document.cookie.split(';');
 		    console.log("allCookies = " +  allCookies + "; length = " + allCookies.length)
 		    if(allCookies) {
-		       for (var i = 0 ; i < allCookies.length; i++) {
+		       for (let i = 0 ; i < allCookies.length; i++) {
 				   console.log("allCookies[" + i + "] = " + allCookies[i])
 				   if (allCookies[i] != undefined) {
 				      let nameAndValue = allCookies[i].split('=');
