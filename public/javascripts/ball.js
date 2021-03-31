@@ -172,15 +172,3 @@
 			}
 
 	}
-
-	function clearTable(table) {
-	  var rows = table.rows;
-	  var i = rows.length;
-	  while (--i) {
-	    rows[i].parentNode.removeChild(rows[i]);
-	    // or
-	    // table.deleteRow(i);
-	  }
-}
-
-
