@@ -33,8 +33,6 @@
 		strAllUsers = allUsers.join(',')
 
 		setCookie("usernames", strAllUsers, 365)
-		console.log("usernames = " + strAllUsers)
-
 
 
 		let randomNumber=0
@@ -86,8 +84,6 @@
 		       { row.style.color = '#cf133b'; }
 		    else { row.style.color = '#3b4ba3'; }
 
-
-
 			let cell0 = row.insertCell(0);
 			let cell1 = row.insertCell(1);
 			let cell2 = row.insertCell(2);
@@ -104,7 +100,7 @@
     // The cookie names are bluecount, redcount, and lastClass
 
 	function getCookie(cname) {
-	   console.log("getCookie: cname = " + cname)
+	   //console.log("getCookie: cname = " + cname)
        let name = cname + "=";
        let decodedCookie = decodeURIComponent(document.cookie);
        let ca = decodedCookie.split(';');
@@ -124,7 +120,7 @@
 
 
 	function setCookie(cname, cvalue, exdays) {
-	   console.log("setCookie: cname = " + cname + "; value = " + cvalue)
+	   //console.log("setCookie: cname = " + cname + "; value = " + cvalue)
        let d = new Date();
        d.setTime(d.getTime() + (exdays*24*60*60*1000));
        let expires = "expires="+ d.toUTCString();
@@ -134,7 +130,7 @@
 
 
 	function getCount(cname) {
-	   console.log("getCount: cname = " + cname)
+	   //console.log("getCount: cname = " + cname)
        let count = getCookie(cname);
        if (!count) {
 		  count = 0
@@ -149,15 +145,14 @@
 	function deleteCookies() {
 
 		let allCookies = document.cookie.split(';');
-		    console.log("allCookies = " +  allCookies + "; length = " + allCookies.length)
 		    if(allCookies) {
 		       for (let i = 0 ; i < allCookies.length; i++) {
-				   console.log("allCookies[" + i + "] = " + allCookies[i])
+				   //console.log("allCookies[" + i + "] = " + allCookies[i])
 				   if (allCookies[i] != undefined) {
 				      let nameAndValue = allCookies[i].split('=');
 				      let cname= nameAndValue[0]
 				      let cvalue= nameAndValue[1]
-		              console.log(cname + " = " +  cvalue)
+		              //console.log(cname + " = " +  cvalue)
 		              setCookie(cname, cvalue, -365)
 				   }
 
@@ -166,15 +161,6 @@
 			   console.log("There are no cookies to delete")
 			}
 
-
-        /*
-		document.cookie = "bluecount=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-		document.cookie = "redcount=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-		document.cookie = "lastClass=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-		document.cookie = "Bluecount=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-		document.cookie = "Redcount=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-		document.cookie = "usernames=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-		*/
 
 
 	}
