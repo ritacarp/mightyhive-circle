@@ -157,12 +157,30 @@
 				   }
 
 		       }
+		       document.getElementById('_User').innerHTML = "&nbsp;"
+		       document.getElementById('_BlueBallCount').innerHTML = "&nbsp;"
+		       document.getElementById('_RedBallCount').innerHTML = "&nbsp;"
+
+               let statsTable = document.getElementById('_statsTable')
+               let rowCount = statsTable.rows.length
+		       for(let i = 2; i < rowCount; i++) {
+				   document.getElementById("_statsTable").deleteRow(2);
+			   }
+
 		    } else {
 			   console.log("There are no cookies to delete")
 			}
 
-
-
 	}
+
+	function clearTable(table) {
+	  var rows = table.rows;
+	  var i = rows.length;
+	  while (--i) {
+	    rows[i].parentNode.removeChild(rows[i]);
+	    // or
+	    // table.deleteRow(i);
+	  }
+}
 
 
