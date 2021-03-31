@@ -21,6 +21,35 @@ a {
   background-image: -ms-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);
 }
 
-.bgBlue {
+.bgblue {
   background-color: #3b4ba3;
+}
+
+.bgred {
+  background-color: #cf133b;
+}
+
+.deletebutton{
+ display:inline-block;
+ padding:0.3em 1.2em;
+ margin:0 0.1em 0.1em 0;
+ border:0.16em solid rgba(255,255,255,0);
+ border-radius:2em;
+ box-sizing: border-box;
+ text-decoration:none;
+ font-family:'Roboto',sans-serif;
+ font-weight:300;
+ color:#FFFFFF;
+ text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+ text-align:center;
+ transition: all 0.2s;
+}
+.deletebutton:hover{
+ border-color: rgba(255,255,255,1);
+}
+@media all and (max-width:30em){
+ .deletebutton{
+  display:block;
+  margin:0.2em auto;
+ }
 }

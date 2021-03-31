@@ -1,10 +1,27 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div(style="text-align: center") 
+    h1= title
+    h2 by Rita Carp
+  
   
   div#_ball(class='ball')
+
+  p(style="text-align: center") 
+      | Blue Ball Count: 
+      span#_BlueBallCount 1
+
+
+  p(style="text-align: center") 
+      | Red Ball Count: 
+      span#_RedBallCount 2
+
+  
+  p(style="text-align: center")
+    button#_deleteButton(class='deletebutton' style='background-color:#9a4ef1')
+      | Delete All Cookies
+
   
   script(type="text/javascript" src="/javascripts/ball.js")
 
