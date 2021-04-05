@@ -4,7 +4,9 @@
 
 exports.index = function(req, res, next) {
 
-	res.render('index', { title: `MightyHive Ball Controller` });
+	res.render('ballIndex', { title: `MightyHive Shiny Ball Controller` });
 
 };
+
+
 

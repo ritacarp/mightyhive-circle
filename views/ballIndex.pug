@@ -1,0 +1,48 @@
+extends ballLayout
+
+block content
+  div(style="text-align: center") 
+    h1= title
+    h2 by Rita Carp
+    
+  
+  //-
+    p#_ball(class='ball' style='display:none;')
+  
+  section(class="stage center")
+    figure#_ball(class="ball" style='display:none;')
+      span(class="shadow")
+
+
+  p(style="text-align: center") 
+      | Current User: 
+      span#_User &nbsp;
+
+
+  div(style="text-align: center") 
+      | Blue Ball Count: 
+      span#_BlueBallCount &nbsp;
+
+
+  div(style="text-align: center") 
+      | Red Ball Count: 
+      span#_RedBallCount &nbsp;
+
+
+  p(style="text-align: center")
+    table#_statsTable(class="center" width="100%")
+      tr
+        th(colspan="3" style="text-align: center") User Statistics
+      tr
+        th(width="40%") User
+        th(width="30%") Blue Count
+        th Red Count
+
+  
+  p(style="text-align: center")
+    button#_deleteButton(class='deletebutton' style='background-color:#9a4ef1')
+      | Delete All Cookies
+
+  
+  script(type="text/javascript" src="/javascripts/shinyBall.js")
+
